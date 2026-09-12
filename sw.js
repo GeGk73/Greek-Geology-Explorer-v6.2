@@ -1,4 +1,4 @@
-const CACHE_NAME = 'geology-pwa-v5.3';
+const CACHE_NAME = 'geology-pwa-v6.0';
 const OFFLINE_URLS = ['/', '/index.html', '/manifest.json', '/icons/icon-192.png', '/icons/icon-512.png'];
 
 self.addEventListener('install', event => {
