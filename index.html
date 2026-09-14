@@ -97,7 +97,9 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-se
 .ref-item.open .ref-body { display:block; }
 
 .page-title { font-size:16px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; }
-.footer { font-size:10px; color:#ccc; text-align:center; padding:6px 0 2px; display:flex; justify-content:space-between; }
+.disclaimer { font-size:10px; color:#a8a8a8; line-height:1.5; text-align:center;
+  padding:14px 6px 6px; border-top:1px solid #EAEAE6; margin-top:8px; }
+.footer { font-size:10px; color:#ccc; text-align:center; padding:4px 0 2px; display:flex; justify-content:space-between; }
 </style>
 </head>
 <body>
@@ -146,6 +148,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-se
     <div id="saveMsg" style="display:none;color:#2D5016;font-size:12px;margin-top:6px;text-align:center">✅ Αποθηκεύτηκε</div>
   </div>
 
+  <div class="disclaimer">Εφαρμογή εκπαιδευτικού/ενημερωτικού χαρακτήρα. Τα όρια ζωνών είναι ενδεικτικά — δεν υποκαθιστά επίσημη γεωλογική αξιολόγηση.</div>
   <div class="footer">
     <span>Βασισμένο σε ακαδημαϊκές πηγές ΑΠΘ · ΙΓΜΕ</span><span>@Ge_Gk</span>
   </div>
@@ -155,6 +158,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-se
 <div class="page" id="page-library">
   <div class="page-title">📚 Βιβλιοθήκη Ζωνών</div>
   <div id="libraryList"></div>
+  <div class="disclaimer">Εφαρμογή εκπαιδευτικού/ενημερωτικού χαρακτήρα. Τα όρια ζωνών είναι ενδεικτικά — δεν υποκαθιστά επίσημη γεωλογική αξιολόγηση.</div>
   <div class="footer"><span>Βασισμένο σε ακαδημαϊκές πηγές ΑΠΘ · ΙΓΜΕ</span><span>@Ge_Gk</span></div>
 </div>
 
@@ -165,6 +169,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-se
     <button class="btn btn-danger btn-sm" onclick="clearHistory()">Διαγραφή όλων</button>
   </div>
   <div id="historyList"></div>
+  <div class="disclaimer">Εφαρμογή εκπαιδευτικού/ενημερωτικού χαρακτήρα. Τα όρια ζωνών είναι ενδεικτικά — δεν υποκαθιστά επίσημη γεωλογική αξιολόγηση.</div>
+  <div class="footer"><span>Βασισμένο σε ακαδημαϊκές πηγές ΑΠΘ · ΙΓΜΕ</span><span>@Ge_Gk</span></div>
 </div>
 
 <div class="tabbar">

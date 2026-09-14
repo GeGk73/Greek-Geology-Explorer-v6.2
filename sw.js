@@ -1,4 +1,4 @@
-const CACHE_NAME = 'geology-pwa-v6.2';
+const CACHE_NAME = 'geology-pwa-v6.3';
 const ASSETS = [
   './',
   './index.html',
