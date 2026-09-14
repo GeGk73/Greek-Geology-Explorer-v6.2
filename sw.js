@@ -22,16 +22,37 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+
+  const url = new URL(e.request.url);
+  const isCode = e.request.mode === 'navigate'
+              || url.pathname.endsWith('.html')
+              || url.pathname.endsWith('.js')
+              || url.pathname.endsWith('/');
+
+  if (isCode) {
+    // NETWORK-FIRST: όταν υπάρχει δίκτυο παίρνει πάντα την τελευταία έκδοση
+    e.respondWith(
+      fetch(e.request)
+        .then(res => {
+          if (res && res.ok) {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then(c => c.put(e.request, clone));
+          }
+          return res;
+        })
+        .catch(() => caches.match(e.request).then(hit => hit || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  // CACHE-FIRST για εικονίδια/manifest
   e.respondWith(
-    caches.match(e.request).then(hit => {
-      if (hit) return hit;
-      return fetch(e.request).then(res => {
-        if (res && res.ok) {
-          const clone = res.clone();
-          caches.open(CACHE_NAME).then(c => c.put(e.request, clone));
-        }
-        return res;
-      }).catch(() => caches.match('./index.html'));
-    })
+    caches.match(e.request).then(hit => hit || fetch(e.request).then(res => {
+      if (res && res.ok) {
+        const clone = res.clone();
+        caches.open(CACHE_NAME).then(c => c.put(e.request, clone));
+      }
+      return res;
+    }))
   );
 });
